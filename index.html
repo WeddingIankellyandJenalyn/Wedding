@@ -1,17 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opening Envelope with HTML & css</title>
-    </head>
-	<style>
-    	body {
-  background: #e6e0d6;
-}
-.letter-image {
+    <title>Name Input Slide</title>
+    <style>
+          body {
+            background: url('your-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            display: flex;
+			  flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: Black;
+            text-align: center;
+			
+            background-color: #d8e8d6; /* sage green color */
+        }
+		
+		
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #7fb5a8;
+            color: white;
+            cursor: pointer;
+        }
+		  buttons {
+            padding: 5px 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #7fb5a8;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6da69d;
+        }
+		
+		
+		.letter-image {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -60,7 +104,7 @@
 .animated-mail .back-fold {
   position: absolute;
   bottom: 0;
-  width: 200px;
+  width: 8px;
   height: 100px;
   background: #a97954;
   z-index: 0;
@@ -102,7 +146,7 @@
 }
 .animated-mail .letter .letter-context {
   margin-top: 10px;
-  margin-left: 5px;
+  margin-left: px;
   height: 10px;
   width: 20%;
   background: #87ae73;
@@ -110,7 +154,7 @@
 }
 .animated-mail .letter .letter-context-body {
   margin-top: 10px;
-  margin-left: 5px;
+  margin-left: px;
   /* height: 10px; */
   width: 99%;
   color: black;
@@ -156,15 +200,44 @@
   z-index: 0;
 }
 .letter-image:hover .animated-mail .letter {
-  height: 280px;
+  height: 350px;
+  width: 170px;
   content: 'ram avtar';
   color: #000;
 }
 .letter-image:hover .shadow {
   width: 250px;
 }
-</style>
-    <body>
+		
+        .slide {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<header>
+    <img id="logo" src="https://i.postimg.cc/2Sx6rrtr/loho.png" alt="Logo" width="500" height="500">
+</header>
+<body>
+
+    <div class="container">
+        <div id="inputSlide" class="slide active">
+            <h2>Enter Your Full Name Thank you</h2>
+            <input type="text" id="nameInput" placeholder="Your Name">
+            <button onclick="submitName()">Submit</button>
+			
+			 <p class="error" id="errorMessage" style="display:none;"></p>
+       
+        </div>
+
+        <div id="nextSlide" class="slide">
+		
+		
+		
+		
+		
         <div class="letter-image">
             <div class="animated-mail">
                 <div class="back-fold"></div>
@@ -173,12 +246,11 @@
                     <div class="letter-title"></div>
                     <div class="letter-context"></div>
                     <div class="letter-context-body">
-                        <p><strong>To,<br>Ligaya Siray </strong><br> You're cordially invited</p>
-                    </div>
-                    <div class="letter-stamp">
-					<a href="https://imgur.com/ki0YXzO">Tap me</a>
-                        <div class="letter-stamp-inner"> 
-						</div>
+                        <p><strong>Hi,<br><span id="greetingName"></span>!</strong><br></p>
+						<p>You're cordially</p>
+						<p>invited</p>
+						<button id="youTubeButton">Invitation For you</button>
+                  
                     </div>
                 </div>
                 <div class="top-fold"></div>
@@ -189,6 +261,48 @@
         </div>
 		
     </body>
-    
+		
+		
+		
 
-    </html>
+
+
+           
+        </div>
+    </div>
+
+    <script>
+        function submitName() {
+            const name = document.getElementById("nameInput").value;
+            document.getElementById("greetingName").innerText = name;
+            document.getElementById("inputSlide").classList.remove("active");
+            document.getElementById("nextSlide").classList.add("active");
+        }
+		
+    </script>
+	<script>
+        const allowedNames = ["Rommel Bernabe", "Rhoderick Castro", "Alex Ramos", "Jun Bugaoan ",Carlos Salviejo",Randy Quire ",Rodolfo Nieto, ]; // List of allowed names
+
+        function submitName() {
+            const name = document.getElementById("nameInput").value;
+            const errorMessage = document.getElementById("errorMessage");
+
+            if (allowedNames.includes(name)) {
+                document.getElementById("greetingName").innerText = name;
+                document.getElementById("inputSlide").classList.remove("active");
+                document.getElementById("nextSlide").classList.add("active");
+                errorMessage.style.display = 'none'; // Hide error message
+            } else {
+                errorMessage.innerText = "Access Denied. Please enter a valid name.";
+                errorMessage.style.display = 'block'; // Show error message
+            }
+        }
+    </script>
+	<script>
+    document.getElementById("youTubeButton").onclick = function() {
+        window.location.href = "https://walaperiod.github.io/Wedding-Invitation/";
+    };
+</script>
+
+</body>
+</html>
