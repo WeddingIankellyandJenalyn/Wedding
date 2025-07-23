@@ -8,7 +8,7 @@
 	
           body {
 
-            font-family: Arial, sans-serif;
+            font-family: Arial, cormorant;
             display: flex;
 			  flex-direction: column;
             justify-content: center;
@@ -648,15 +648,41 @@ div {
 		
 		
         .container {
-            background-color: white;
-            width: 20%;
-            margin: 20px auto;
-            padding: 300px;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #87ae73;
+			color: white;
+			opacity: 0.80;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			 display: flex;
+            align-items: center;
+			
+			border-radius: 10px;
+			margin-top: 140%;
+			margin-right: auto;
+			margin-bottom: auto;
+			margin-left: auto;
+			animation: moveUp 2s infinite alternate;
         }
-		
+		.arrow {
+
+            width: 0;
+            height: 0;
+
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 20px solid red;
+            position: absolute;
+            top: -20px; /* position the arrow above the box */
+            left: 50%;
+            transform: translateX(-50%);
+			}
+			 @keyframes moveUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+			
+			
 		.logo {
             max-width: 10px; /* Adjust logo size */
             margin-bottom: 20px;
@@ -670,7 +696,7 @@ div {
             margin-right: 10px;
         }
         button {
-            padding: 10px 20px;
+            padding: 10px 30px;
             border: none;
             border-radius: 5px;
             background-color: #7fb5a8;
@@ -1398,7 +1424,7 @@ border: 5px solid #555;
  
             <h2><center>Enter Your Full Name Thank you</h2></center>
             <center><input type="text" id="nameInput" placeholder="Your Name">
-            <button onclick="submitName()">Submit</button></center>
+            <button onclick="submitName()">Verify</button></center>
 			
 			 <p class="error" id="errorMessage" style="display:none;"></p>
          
@@ -1408,7 +1434,7 @@ border: 5px solid #555;
 		
 		
 		
-		<div class="container"><h2>TAP THE ENVELOPE</h2>
+		
 		
         <div class="letter-image">
             <div class="animated-mail">
@@ -1422,6 +1448,7 @@ border: 5px solid #555;
             <div class="heart a1"></div>
             <div class="heart a2"></div>
             <div class="heart a3"></div>
+			
         </div>
                         <p><strong>Hi,<br><span id="greetingName"></span>!</strong><br></p>
 						<center><p>You're cordially</p></center>
@@ -1429,11 +1456,16 @@ border: 5px solid #555;
 						<center><button id="youTubeButton">Invitation For you Tap me!! </button></center>
                   
                     </div>
+					
                 </div>
+					
+					
                 <div class="top-fold"></div>
                 <div class="body"></div>
                 <div class="left-fold"></div>
+			
             </div>
+			<center><div class="container"><h2>TAP THE ENVELOPE</h2><div class="arrow"></div></div></ccenter>
             <div class="shadow"></div>
         </div>
 		
